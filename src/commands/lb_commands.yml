@@ -1,0 +1,14 @@
+description: >
+  This command migrates database changes with the Liquibase update command.
+
+parameters:
+  changelogFile:
+    type: string
+    default: "changelog.xml"
+    description: "changelog file"
+steps:
+  - run:
+      environment:
+        PARAM_CHANGELOG: <<parameters.changelogFile>>
+      name: Update database with new changes
+      command: <<include(scripts/update_database.sh)>>

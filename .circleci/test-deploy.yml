@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  liquibasecli-orb: szandany/liquibasecli-orb@dev:<<pipeline.git.revision>>
+  liquibase: szandany/liquibase@dev:<<pipeline.git.revision>>
   orb-tools: circleci/orb-tools@11.1
 
 filters: &filters
@@ -16,7 +16,7 @@ jobs:
     steps:
       - checkout
       # Run your orb's commands to validate them.
-      - liquibasecli-orb/greet
+      - liquibase/lb_commands
 workflows:
   test-deploy:
     jobs:
@@ -26,7 +26,7 @@ workflows:
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
-          orb-name: szandany/liquibasecli-orb
+          orb-name: szandany/liquibase
           vcs-type: << pipeline.project.type >>
           pub-type: production
           requires:
@@ -38,3 +38,4 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
+
