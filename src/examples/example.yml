@@ -1,13 +1,14 @@
 description: >
-  Sample example description.
-# Provide a use-case based example for using this orb.
-# Everything in the `usage` section will be displayed in the orb registry.
-# Comments are not retained.
+  In this example, the job will perform Liquibase commands to migrate any pending database changes. 
+  First, the Liquibase status will check for pending changes. 
+  If there are any pending database changes, the job will first will tag the database to mark a know stable state of the database prior to deployment. 
+  Then, the job will run the liquibase update command to migrate the changes.
+
 usage:
   version: 2.1
   orbs:
-    <orb-name>: <namespace>/<orb-name>@1.2.3
+    liquibasecli-orb: szandany/liquibasecli-orb@1.2.3
   workflows:
     use-my-orb:
       jobs:
-        - <orb-name>/<job-name>
+        - liquibasecli-orb/<job-name>
