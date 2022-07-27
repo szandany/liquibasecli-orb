@@ -9,5 +9,5 @@ parameters:
     default: "changelog.xml"
     description: "changelog file"
 steps:
-  - lb_commands:
+  - update:
       changelogFile: << parameters.changelogFile >>
