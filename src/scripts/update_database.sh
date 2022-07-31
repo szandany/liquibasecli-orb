@@ -1,5 +1,5 @@
 #!/bin/bash
-echo $url
+echo $URL
 export JAVA_OPTS=$JAVA_OPTS
 LB_PARAMS="--username=$PARAM_USERNAME --password=$PARAM_PASSWORD --url=$PARAM_URL --changeLogFile=$PARAM_CHANGELOG"
 /liquibase/liquibase --version
