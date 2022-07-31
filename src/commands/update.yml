@@ -6,9 +6,35 @@ parameters:
     type: string
     default: "changelog.xml"
     description: "changelog file"
+
+parameters:
+  url:
+    type: 
+    default: "jdbc:h2:file:./h2tutorial"
+    description: "JDBC url to database endpoint"
+
+parameters:
+  username:
+    type: string
+    default: "admin"
+    description: "Database username"
+
+parameters:
+  password:
+    type: string
+    default: "password"
+    description: "Database password"
+
+# steps:
+#   - update:
+#       changelogFile: << parameters.changelogFile >>
+
 steps:
   - run:
       environment:
         PARAM_CHANGELOG: <<parameters.changelogFile>>
+        PARAM_URL: <<parameters.url>>
+        PARAM_USERNAME: <<parameters.username>>
+        PARAM_PASSWORD: <<parameters.password>>
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>

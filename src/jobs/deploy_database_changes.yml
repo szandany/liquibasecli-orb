@@ -1,5 +1,5 @@
 description: >
-  The job will run a database migration with Liquibase
+  The job will run a database migration with Liquibase. Tutorial examples: https://docs.liquibase.com/install/tutorials/home.html
 
 executor: default
 
@@ -8,6 +8,22 @@ parameters:
     type: string
     default: "changelog.xml"
     description: "changelog file"
+
+parameters:
+  url:
+    type: string
+    description: "JDBC url to database endpoint"
+
+parameters:
+  username:
+    type: string
+    description: "Database username"
+
+parameters:
+  password:
+    type: string
+    description: "Database password"
+
 steps:
   - update:
       changelogFile: << parameters.changelogFile >>
