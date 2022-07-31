@@ -26,7 +26,7 @@ steps:
   - run:
       environment:
         PARAM_CHANGELOG: <<parameters.changelogFile>>
-        PARAM_URL: $url
+        PARAM_URL: <<parameters.url>>
         PARAM_USERNAME: <<parameters.username>>
         PARAM_PASSWORD: <<parameters.password>>
       name: Update database with new changes
