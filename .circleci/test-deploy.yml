@@ -32,7 +32,9 @@ workflows:
           requires:
             - orb-tools/pack
             - command-tests
-          context: orb-publishing
+          context: 
+            - orb-publishing
+            - db_creds_test
           filters:
             branches:
               ignore: /.*/
