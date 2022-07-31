@@ -7,19 +7,16 @@ parameters:
     default: "changelog.xml"
     description: "changelog file"
 
-parameters:
   url:
-    type: 
+    type: string
     default: "jdbc:h2:file:./h2tutorial"
     description: "JDBC url to database endpoint"
 
-parameters:
   username:
     type: string
     default: "admin"
     description: "Database username"
 
-parameters:
   password:
     type: string
     default: "password"

@@ -9,17 +9,14 @@ parameters:
     default: "changelog.xml"
     description: "changelog file"
 
-parameters:
   url:
     type: string
     description: "JDBC url to database endpoint"
 
-parameters:
   username:
     type: string
     description: "Database username"
 
-parameters:
   password:
     type: string
     description: "Database password"
