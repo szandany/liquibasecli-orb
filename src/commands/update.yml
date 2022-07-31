@@ -22,10 +22,6 @@ parameters:
     default: "password"
     description: "Database password"
 
-# steps:
-#   - update:
-#       changelogFile: << parameters.changelogFile >>
-
 steps:
   - run:
       environment:
