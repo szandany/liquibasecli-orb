@@ -29,6 +29,9 @@ steps:
         PARAM_URL: <<parameters.url>>
         PARAM_USERNAME: <<parameters.username>>
         PARAM_PASSWORD: <<parameters.password>>
-        URL: $url
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>
+
+  - run:
+    name: test shell script with variable
+    command: bash var_test.sh
