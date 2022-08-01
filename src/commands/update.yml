@@ -30,8 +30,6 @@ steps:
         PARAM_USERNAME: <<parameters.username>>
         PARAM_PASSWORD: <<parameters.password>>
       name: Update database with new changes
-      - run:
-      name: Configure Azure ACR helper
       command: |
           echo $URL_VAR
           export JAVA_OPTS=$JAVA_OPTS
