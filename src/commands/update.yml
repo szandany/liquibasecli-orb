@@ -10,6 +10,7 @@ parameters:
   url:
     type: env_var_name
     default: URL_VAR
+    # default: "jdbc:h2:file:./h2tutorial"
     description: "JDBC url to database endpoint"
 
   username:
