@@ -9,7 +9,8 @@ parameters:
 
   url:
     type: string
-    default: "jdbc:h2:file:./h2tutorial"
+    # default: "jdbc:h2:file:./h2tutorial"
+    default: $URL_VAR
     description: "JDBC url to database endpoint"
 
   username:
@@ -30,6 +31,4 @@ steps:
         PARAM_USERNAME: <<parameters.username>>
         PARAM_PASSWORD: <<parameters.password>>
       name: Update database with new changes
-      command: |
-          echo $URL_VAR
-      # command: <<include(scripts/update_database.sh)>>
+      command: <<include(scripts/update_database.sh)>>
