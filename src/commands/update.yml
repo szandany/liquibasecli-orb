@@ -29,6 +29,15 @@ steps:
         PARAM_URL: <<parameters.url>>
         PARAM_USERNAME: <<parameters.username>>
         PARAM_PASSWORD: <<parameters.password>>
-        URL_VAR: "${URL_VAR}"
       name: Update database with new changes
-      command: <<include(scripts/update_database.sh)>>
+      - run:
+      name: Configure Azure ACR helper
+      command: |
+          echo $URL_VAR
+          export JAVA_OPTS=$JAVA_OPTS
+          LB_PARAMS="--username=$PARAM_USERNAME --password=$PARAM_PASSWORD --url=$PARAM_URL --changeLogFile=$PARAM_CHANGELOG"
+          /liquibase/liquibase --version
+          /liquibase/liquibase $LB_PARAMS status --verbose
+          /liquibase/liquibase $LB_PARAMS update
+          /liquibase/liquibase $LB_PARAMS history
+      # command: <<include(scripts/update_database.sh)>>
