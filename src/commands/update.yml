@@ -29,6 +29,6 @@ steps:
         PARAM_URL: <<parameters.url>>
         PARAM_USERNAME: <<parameters.username>>
         PARAM_PASSWORD: <<parameters.password>>
-        URL: "${URL_VAR}"
+        URL_VAR: "${URL_VAR}"
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>
