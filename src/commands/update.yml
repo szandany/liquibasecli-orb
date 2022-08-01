@@ -9,7 +9,7 @@ parameters:
 
   url:
     type: string
-    default: "jdbc:h2:file:./h2tutorial"
+    # default: "jdbc:h2:file:./h2tutorial"
     description: "JDBC url to database endpoint"
 
   username:
