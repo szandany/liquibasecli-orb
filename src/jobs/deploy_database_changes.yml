@@ -1,4 +1,3 @@
-version: 2.1
 description: >
   The job will run a database migration with Liquibase. Tutorial examples: https://docs.liquibase.com/install/tutorials/home.html
 
