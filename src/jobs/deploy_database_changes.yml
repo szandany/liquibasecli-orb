@@ -1,29 +1,32 @@
 description: >
   The job will run a database migration with Liquibase. Tutorial examples: https://docs.liquibase.com/install/tutorials/home.html
 
-# docker:
-#   - image: liquibase/liquibase:latest
+docker:
+  - image: liquibase/liquibase:latest
 
-# parameters:
-#   deploy_database_changes_job_changelogFile:
-#     type: string
-#     default: "changelog.xml"
-#     description: "changelog file"
+parameters:
+  changelogFile:
+    type: string
+    default: "changelog.xml"
+    description: "changelog file"
 
-  # url:
-  #   type: string
-  #   description: "JDBC url to database endpoint"
+  url:
+    type: env_var_name
+    default: URL_VAR
+    # default: "jdbc:h2:file:./h2tutorial"
+    description: "JDBC url to database endpoint"
 
-  # username:
-  #   type: string
-  #   description: "Database username"
+  username:
+    type: string
+    default: "admin"
+    description: "Database username"
 
-  # password:
-  #   type: string
-  #   description: "Database password"
+  password:
+    type: string
+    default: "password"
+    description: "Database password"
 
 steps:
+  - checkout
   - update:
-    changelogFile: myCommandChangeLog.yml
-  # - update:
-  #     changelogFile: << parameters.deploy_database_changes_job_changelogFile >>
+    changelogFile: << parameters.changelogFile >>
