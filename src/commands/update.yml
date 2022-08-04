@@ -23,11 +23,6 @@ parameters:
     default: LIQUIBASE_COMMAND_PASSWORD
     description: "Database password"
 
-  liquibaseProLicenseKey:
-    type: env_var_name
-    default: LIQUIBASE_PRO_LICENSE_KEY
-    description: "Liquibase License Key"
-
   arguments:
     description: If you wish to pass any additional arguments to the aws deploy command
     type: string
@@ -40,7 +35,6 @@ steps:
         PARAM_URL: ${<<parameters.url>>}
         PARAM_USERNAME: ${<<parameters.username>>}
         PARAM_PASSWORD: ${<<parameters.password>>}
-        # LIQUIBASE_PRO_LICENSE_KEY: ${<< parameters.liquibaseProLicenseKey >>}
         LB_ARGS: << parameters.arguments >>
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>
