@@ -22,7 +22,7 @@ parameters:
     type: env_var_name
     default: LIQUIBASE_COMMAND_PASSWORD
     description: "Database password"
-  
+
   arguments:
     description: If you wish to pass any additional arguments to the aws deploy command
     type: string
