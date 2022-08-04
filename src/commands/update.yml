@@ -32,4 +32,3 @@ steps:
         PARAM_PASSWORD: <<parameters.password>>
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>
-      # command: echo ${<<parameters.url>>}

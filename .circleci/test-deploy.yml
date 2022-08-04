@@ -22,6 +22,8 @@ workflows:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - command-tests:
+          context: 
+            - db_creds_test
           filters: *filters
       - orb-tools/pack:
           filters: *filters
@@ -34,7 +36,7 @@ workflows:
             - command-tests
           context: 
             - orb-publishing
-            - db_creds_test
+            # - db_creds_test
           filters:
             branches:
               ignore: /.*/
