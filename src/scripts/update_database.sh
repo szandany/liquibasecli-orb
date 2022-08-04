@@ -8,6 +8,6 @@ liquibase --version
 # liquibase $LB_PARAMS status --verbose
 # liquibase $LB_PARAMS update
 # liquibase $LB_PARAMS history
-liquibase $LB_ARGS status --verbose
-liquibase $LB_ARGS update
-liquibase $LB_ARGS history
+liquibase --changeLogFile=$PARAM_CHANGELOG $LB_ARGS status --verbose
+liquibase --changeLogFile=$PARAM_CHANGELOG $LB_ARGS update
+liquibase --changeLogFile=$PARAM_CHANGELOG $LB_ARGS history
