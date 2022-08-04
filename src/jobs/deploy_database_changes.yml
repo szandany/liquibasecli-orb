@@ -1,7 +1,8 @@
 description: >
   The job will run a database migration with Liquibase. Tutorial examples: https://docs.liquibase.com/install/tutorials/home.html
 
-executor: default
+docker:
+  - image: liquibase/liquibase:latest
 
 parameters:
   changelogFile:
