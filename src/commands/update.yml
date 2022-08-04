@@ -40,7 +40,7 @@ steps:
         PARAM_URL: ${<<parameters.url>>}
         PARAM_USERNAME: ${<<parameters.username>>}
         PARAM_PASSWORD: ${<<parameters.password>>}
-        LIQUIBASE_PRO_LICENSE_KEY: ${<< parameters.liquibaseProLicenseKey >>}
+        # LIQUIBASE_PRO_LICENSE_KEY: ${<< parameters.liquibaseProLicenseKey >>}
         LB_ARGS: << parameters.arguments >>
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>
