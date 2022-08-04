@@ -41,4 +41,4 @@ steps:
   - update:
       changelogFile: << parameters.changelogFile >>
       arguments: << parameters.arguments >>
-      liquibaseProLicenseKey: << parameters.liquibaseProLicenseKey >>
+      liquibaseProLicenseKey: ${<< parameters.liquibaseProLicenseKey >>}
