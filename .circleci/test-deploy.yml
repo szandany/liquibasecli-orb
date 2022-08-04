@@ -18,16 +18,17 @@ jobs:
       # Run your orb's commands to validate them.
       - liquibasecli-orb/update:
           changelogFile: myCommandChangeLog.yml
-  # job-tests:
-  #     - checkout
-  #     # Run your orb's jobs to validate them.
-  #     - liquibasecli-orb/deploy_database_changes
 
 workflows:
   test-deploy:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - command-tests:
+          context:
+            - db_creds_test
+          filters: *filters
+      # Run your orb's jobs to validate them.
+      - liquibasecli-orb/deploy_database_changes:
           context:
             - db_creds_test
           filters: *filters
@@ -48,4 +49,3 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
-
