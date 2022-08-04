@@ -4,24 +4,6 @@ description: >
 docker:
   - image: liquibase/liquibase:latest
 
-parameters:
-  changelogFile:
-    type: string
-    default: "changelog.xml"
-    description: "changelog file"
-
-  url:
-    type: string
-    description: "JDBC url to database endpoint"
-
-  username:
-    type: string
-    description: "Database username"
-
-  password:
-    type: string
-    description: "Database password"
-
 steps:
   - update:
       changelogFile: << parameters.changelogFile >>
