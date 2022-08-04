@@ -30,4 +30,4 @@ steps:
   - checkout
   - update:
       changelogFile: << parameters.changelogFile >>
-      url: <<parameters.url>>
+      url: << parameters.url >>
