@@ -1,3 +1,4 @@
+version: 2.1
 description: >
   The job will run a database migration with Liquibase. Tutorial examples: https://docs.liquibase.com/install/tutorials/home.html
 
@@ -11,9 +12,8 @@ parameters:
     description: "changelog file"
 
   url:
-    type: env_var_name
-    default: URL_VAR
-    # default: "jdbc:h2:file:./h2tutorial"
+    type: string
+    default: "jdbc:h2:file:./h2tutorial"
     description: "JDBC url to database endpoint"
 
   username:
@@ -30,3 +30,4 @@ steps:
   - checkout
   - update:
       changelogFile: << parameters.changelogFile >>
+      url: <<parameters.url>>
