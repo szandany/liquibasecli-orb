@@ -10,24 +10,8 @@ parameters:
     default: "changelog.xml"
     description: "changelog file"
 
-  url:
-    type: env_var_name
-    default: LIQUIBASE_COMMAND_URL
-    # default: "jdbc:h2:file:./h2tutorial"
-    description: "JDBC url to database endpoint"
-
-  username:
-    type: env_var_name
-    default: LIQUIBASE_COMMAND_USERNAME
-    description: "Database username"
-
-  password:
-    type: env_var_name
-    default: LIQUIBASE_COMMAND_PASSWORD
-    description: "Database password"
-
   arguments:
-    description: If you wish to pass any additional arguments to the liquibase command, i.e., '--log-level=info --log-file=mylog.log'
+    description: If you wish to pass any additional arguments to the liquibase command. https://docs.liquibase.com/parameters/command-parameters.html
     type: string
     default: ''
 

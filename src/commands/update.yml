@@ -1,5 +1,5 @@
 description: >
-  This command migrates database changes with the Liquibase update command.
+  This command migrates database changes with the Liquibase update command. https://docs.liquibase.com/commands/update/update.html
 
 parameters:
   changelogFile:
@@ -7,24 +7,8 @@ parameters:
     default: "changelog.xml"
     description: "changelog file"
 
-  url:
-    type: env_var_name
-    default: LIQUIBASE_COMMAND_URL
-    # default: "jdbc:h2:file:./h2tutorial"
-    description: "JDBC url to database endpoint"
-
-  username:
-    type: env_var_name
-    default: LIQUIBASE_COMMAND_USERNAME
-    description: "Database username"
-
-  password:
-    type: env_var_name
-    default: LIQUIBASE_COMMAND_PASSWORD
-    description: "Database password"
-
   arguments:
-    description: If you wish to pass any additional arguments to the aws deploy command
+    description: If you wish to pass any additional arguments to the liquibase command. https://docs.liquibase.com/parameters/command-parameters.html
     type: string
     default: ''
 
@@ -32,9 +16,6 @@ steps:
   - run:
       environment:
         PARAM_CHANGELOG: <<parameters.changelogFile>>
-        PARAM_URL: ${<<parameters.url>>}
-        PARAM_USERNAME: ${<<parameters.username>>}
-        PARAM_PASSWORD: ${<<parameters.password>>}
         LB_ARGS: << parameters.arguments >>
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>
