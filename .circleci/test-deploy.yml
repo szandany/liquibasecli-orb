@@ -17,11 +17,12 @@ jobs:
       - checkout
       # Run your orb's commands to validate them.
       - liquibasecli-orb/update:
-          changelogFile: myOtherChangeLog.yml
+          changelogFile: myCommandChangeLog.yml
   job-tests:
       - checkout
       # Run your orb's jobs to validate them.
-      - liquibasecli-orb/deploy_database_changes
+      - liquibasecli-orb/deploy_database_changes:
+          changelogFile: myJobChangeLog.yml
 
 workflows:
   test-deploy:
