@@ -21,8 +21,7 @@ jobs:
   job-tests:
       - checkout
       # Run your orb's jobs to validate them.
-      - liquibasecli-orb/deploy_database_changes:
-          deploy_database_changes_job_changelogFile: myJobChangeLog.yml
+      - liquibasecli-orb/deploy_database_changes
 
 workflows:
   test-deploy:

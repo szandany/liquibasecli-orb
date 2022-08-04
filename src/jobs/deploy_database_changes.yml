@@ -1,14 +1,14 @@
 description: >
   The job will run a database migration with Liquibase. Tutorial examples: https://docs.liquibase.com/install/tutorials/home.html
 
-docker:
-  - image: liquibase/liquibase:latest
+# docker:
+#   - image: liquibase/liquibase:latest
 
-parameters:
-  deploy_database_changes_job_changelogFile:
-    type: string
-    default: "changelog.xml"
-    description: "changelog file"
+# parameters:
+#   deploy_database_changes_job_changelogFile:
+#     type: string
+#     default: "changelog.xml"
+#     description: "changelog file"
 
   # url:
   #   type: string
@@ -23,5 +23,6 @@ parameters:
   #   description: "Database password"
 
 steps:
-  - update:
-      changelogFile: << parameters.deploy_database_changes_job_changelogFile >>
+  - run: echo "hello world"
+  # - update:
+  #     changelogFile: << parameters.deploy_database_changes_job_changelogFile >>
