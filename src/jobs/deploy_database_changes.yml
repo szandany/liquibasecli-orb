@@ -23,6 +23,7 @@ description: >
   #   description: "Database password"
 
 steps:
-  - run: echo "hello world"
+  - liquibasecli-orb/update:
+    changelogFile: myCommandChangeLog.yml
   # - update:
   #     changelogFile: << parameters.deploy_database_changes_job_changelogFile >>
