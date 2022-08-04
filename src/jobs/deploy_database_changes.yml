@@ -26,6 +26,11 @@ parameters:
     default: LIQUIBASE_COMMAND_PASSWORD
     description: "Database password"
 
+  liquibaseProLicenseKey:
+    type: env_var_name
+    default: LIQUIBASE_PRO_LICENSE_KEY
+    description: "Liquibase License Key"
+
   arguments:
     description: If you wish to pass any additional arguments to the liquibase command, i.e., '--log-level=info --log-file=mylog.log'
     type: string
@@ -36,3 +41,4 @@ steps:
   - update:
       changelogFile: << parameters.changelogFile >>
       arguments: << parameters.arguments >>
+      liquibaseProLicenseKey: << parameters.liquibaseProLicenseKey >>
