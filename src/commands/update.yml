@@ -1,9 +1,6 @@
 description: >
   This command migrates database changes with the Liquibase update command.
 
-docker:
-  - image: liquibase/liquibase:latest
-
 parameters:
   changelogFile:
     type: string
