@@ -32,7 +32,7 @@ workflows:
       - liquibasecli-orb/deploy_database_changes:
           context:
             - db_creds_test
-          arguments: --log-level=info --log-file=mylog.log
+          arguments: "--log-level=info --log-file=mylog.log"
           filters: *filters
       - orb-tools/pack:
           filters: *filters
