@@ -12,21 +12,27 @@ parameters:
 
   url:
     type: env_var_name
-    default: URL_VAR
+    default: LIQUIBASE_COMMAND_URL
     # default: "jdbc:h2:file:./h2tutorial"
     description: "JDBC url to database endpoint"
 
   username:
-    type: string
-    default: "admin"
+    type: env_var_name
+    default: LIQUIBASE_COMMAND_USERNAME
     description: "Database username"
 
   password:
-    type: string
-    default: "password"
+    type: env_var_name
+    default: LIQUIBASE_COMMAND_PASSWORD
     description: "Database password"
+  
+  arguments:
+    description: If you wish to pass any additional arguments to the liquibase command, i.e., '--log-level=info --log-file=mylog.log'
+    type: string
+    default: ''
 
 steps:
   - checkout
   - update:
       changelogFile: << parameters.changelogFile >>
+      arguments: << parameters.arguments >>

@@ -9,26 +9,32 @@ parameters:
 
   url:
     type: env_var_name
-    default: URL_VAR
+    default: LIQUIBASE_COMMAND_URL
     # default: "jdbc:h2:file:./h2tutorial"
     description: "JDBC url to database endpoint"
 
   username:
-    type: string
-    default: "admin"
+    type: env_var_name
+    default: LIQUIBASE_COMMAND_USERNAME
     description: "Database username"
 
   password:
-    type: string
-    default: "password"
+    type: env_var_name
+    default: LIQUIBASE_COMMAND_PASSWORD
     description: "Database password"
+  
+  arguments:
+    description: If you wish to pass any additional arguments to the aws deploy command
+    type: string
+    default: ''
 
 steps:
   - run:
       environment:
         PARAM_CHANGELOG: <<parameters.changelogFile>>
         PARAM_URL: ${<<parameters.url>>}
-        PARAM_USERNAME: <<parameters.username>>
-        PARAM_PASSWORD: <<parameters.password>>
+        PARAM_USERNAME: ${<<parameters.username>>}
+        PARAM_PASSWORD: ${<<parameters.password>>}
+        LB_ARGS: << parameters.arguments >>
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>
