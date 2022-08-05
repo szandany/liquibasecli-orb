@@ -11,7 +11,7 @@ parameters:
     description: If you wish to pass any additional arguments to the liquibase command. https://docs.liquibase.com/parameters/command-parameters.html
     type: string
     default: ''
-  
+
   liquibaseProLicenseKey:
     type: env_var_name
     default: LIQUIBASE_PRO_LICENSE_KEY
