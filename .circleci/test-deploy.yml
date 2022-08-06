@@ -32,7 +32,7 @@ workflows:
       - liquibasecli-orb/deploy_database_changes:
           # context:
           #   - db_creds_test
-          arguments: "--log-level=info --log-file=/tmp/${CIRCLE_BUILD_NUM}.log --url=jdbc:h2:file:./h2_liquibase --username=admin --password=password"
+          arguments: "--url=jdbc:h2:file:./h2_liquibase --username=admin --password=password"
           filters: *filters
       - orb-tools/pack:
           filters: *filters
