@@ -15,8 +15,13 @@ parameters:
     type: string
     default: ''
 
+# working_directory: /tmp
 steps:
   - checkout
   - update:
       changelogFile: << parameters.changelogFile >>
       arguments: << parameters.arguments >>
+  
+  - store_artifacts:
+          path: /tmp/myLog.log
+          destination: artifact-file

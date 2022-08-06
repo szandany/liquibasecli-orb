@@ -12,15 +12,10 @@ parameters:
     type: string
     default: ''
 
-  liquibaseProLicenseKey:
-    type: env_var_name
-    default: LIQUIBASE_PRO_LICENSE_KEY
-
 steps:
   - run:
       environment:
         PARAM_CHANGELOG: <<parameters.changelogFile>>
         LB_ARGS: << parameters.arguments >>
-        LB_LIC: << parameters.liquibaseProLicenseKey >>
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>
