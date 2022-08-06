@@ -7,6 +7,11 @@ parameters:
     default: "changelog.xml"
     description: "changelog file"
 
+  logging:
+    type: string
+    default: "--log-level=info --log-file=${CIRCLE_BUILD_NUM}.log"
+    description: "log level and log output file"
+
   arguments:
     description: If you wish to pass any additional arguments to the liquibase command. https://docs.liquibase.com/parameters/command-parameters.html
     type: string
@@ -17,5 +22,6 @@ steps:
       environment:
         PARAM_CHANGELOG: <<parameters.changelogFile>>
         LB_ARGS: << parameters.arguments >>
+        LB_LOGGING: << paramaters.logging >>
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>
