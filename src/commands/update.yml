@@ -9,7 +9,7 @@ parameters:
 
   logging:
     type: string
-    default: "--log-level=info --log-file=${CIRCLE_BUILD_NUM}.log"
+    default: "--log-level=info --log-file=${!CIRCLE_BUILD_NUM}.log"
     description: "log level and log output file"
 
   arguments:
