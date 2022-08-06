@@ -22,6 +22,6 @@ steps:
       environment:
         PARAM_CHANGELOG: <<parameters.changelogFile>>
         LB_ARGS: << parameters.arguments >>
-        LB_LOGGING: << paramaters.logging >>
+        LB_LOGGING: << parameters.logging >>
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>
