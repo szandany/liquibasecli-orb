@@ -21,7 +21,7 @@ steps:
   - update:
       changelogFile: << parameters.changelogFile >>
       arguments: << parameters.arguments >>
-  
+
   - store_artifacts:
-          path: /tmp/myLog.log
-          destination: artifact-file
+      path: /tmp/myLog.log
+      destination: artifact-file
