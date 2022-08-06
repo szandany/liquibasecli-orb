@@ -10,12 +10,16 @@ parameters:
     default: "changelog.xml"
     description: "changelog file"
 
+  # outputLogFile:
+  #   type: string
+  #   default: "changelog.xml"
+  #   description: "changelog file"
+
   arguments:
     description: If you wish to pass any additional arguments to the liquibase command. https://docs.liquibase.com/parameters/command-parameters.html
     type: string
     default: ''
 
-# working_directory: /tmp
 steps:
   - checkout
   - update:
@@ -23,5 +27,5 @@ steps:
       arguments: << parameters.arguments >>
 
   - store_artifacts:
-      path: /tmp/myLog.log
-      destination: artifact-file
+      path: /tmp
+      destination: artifacts
