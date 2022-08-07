@@ -17,7 +17,7 @@ parameters:
 
   log-file:
     type: string
-    default: /tmp/db_build.log
+    default: /tmp/db_deployment.log
     description: "log output file"
 
   arguments:
