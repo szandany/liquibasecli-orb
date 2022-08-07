@@ -17,7 +17,7 @@ parameters:
 
   log-file:
     type: string
-    default: ".log"
+    default: /tmp/${CIRCLE_BUILD_NUM}.log
     description: "log output file"
 
   arguments:
