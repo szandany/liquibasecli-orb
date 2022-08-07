@@ -1,6 +1,6 @@
 #!/bin/bash
 export JAVA_OPTS=$JAVA_OPTS
-$LOG_FILE=$(echo $LOG_FILE | sed 's/\.[^.]*$//')
+LOG_FILE=$(echo $LOG_FILE | sed 's/\.[^.]*$//')
 echo "liquibase.log-file=$LOG_FILE_${CIRCLE_BUILD_NUM}.log" > liquibase.properties
 echo "liquibase.log-level=$LOG_LEVEL" >> liquibase.properties
 liquibase --version
