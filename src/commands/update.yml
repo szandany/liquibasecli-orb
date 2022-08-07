@@ -28,6 +28,6 @@ steps:
         PARAM_CHANGELOG: <<parameters.changelogFile>>
         LB_ARGS: << parameters.arguments >>
         LOG_LEVEL: << parameters.log-level >>
-        LOG_FILE: << parameters.log-file >>
+        LOG_FILE: ${CIRCLE_BUILD_NUM}_<< parameters.log-file >>
       name: Update database with new changes
       command: <<include(scripts/update_database.sh)>>

@@ -17,7 +17,7 @@ parameters:
 
   log-file:
     type: string
-    default: /tmp/${CIRCLE_BUILD_NUM}.log
+    default: /tmp/db_build.log
     description: "log output file"
 
   arguments:
