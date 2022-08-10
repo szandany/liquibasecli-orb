@@ -11,8 +11,10 @@ jobs:
   # Create a job to test the commands of your orbs.
   # You may want to add additional validation steps to ensure the commands are working as expected.
   command-tests:
-    docker:
-      - image: liquibase/liquibase:latest
+    # docker:
+    #   - image: liquibase/liquibase:latest
+    machine: # executor type
+      image: ubuntu-2004:202010-01
     steps:
       - checkout
       # Run your orb's commands to validate them.
