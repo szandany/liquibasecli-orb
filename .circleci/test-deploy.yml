@@ -18,7 +18,7 @@ jobs:
       # Run your orb's commands to validate them.
       - liquibasecli-orb/update
       # - liquibasecli-orb/update:
-      #     changelogFile: myCommandChangeLog.yml
+      #     changelogFile: myOtherChangeLog.yml
 
 workflows:
   test-deploy:
